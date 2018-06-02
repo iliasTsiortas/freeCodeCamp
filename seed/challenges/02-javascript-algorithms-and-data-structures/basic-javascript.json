@@ -7227,6 +7227,52 @@
       }
     },
     {
+      "id": "5b12b8a69068cc660b99297c",
+      "title": "Use If statements in For loop",
+      "description": [
+      ],
+      "releasedOn": "January 1, 2016",
+      "solutions": [" function findAdults(ages)\n {var adults = [];\nfor (var i = 0;  i < ages.length; i++){ \nif (ages[i] >= 18)\n {adults[i] = true;\n} else {\n adults[i] = false;\n } \n} \n return adults; \n} \n var ages = [21, 32, 14, 9, 18]; \n var areTheyAdults = findAdults(ages); "
+      ],
+      "tests": [
+        {
+          "text": "'<code>areTheyAdults</code> should now be [<code>true</code>, <code>true</code>, <code>false</code>, <code>false</code>,<code> true</code>].'",
+          "testString": "assert((function(){if(areTheyAdults != 'undefined' && areTheyAdults[0] == true && areTheyAdults[1] == true && areTheyAdults[2] == false && areTheyAdults[3] == false && areTheyAdults[4] == true){return true;}else{return false;}})(),'<code>areTheyAdults</code> should now be [<code>true</code>, <code>true</code>, <code>false</code>, <code>false</code>,<code> true</code>].');"
+        },
+        {
+          "text": "You should use a <code>for</code> loop to iterate through <code>adults</code>",
+          "testString": "assert(code.match(/for\\s*\\(/g).length >= 1 && code.match(/adults\\s*\\[/), 'You should use a <code>for</code> loop to iterate through <code>myArr</code>');"
+        },
+        {
+          "text": "Do not set <code>areTheyAdults</code> to [<code>true</code>, <code>true</code>, <code>false</code>, <code>false</code>,<code> true</code>] directly",
+          "testString": "assert(!code.match(/areTheyAdults\\s*=\\s*\\[/g), 'Do not set <code>areTheyAdults</code> to [<code>true</code>, <code>true</code>, <code>false</code>, <code>false</code>,<code> true</code>] directly');"
+        }
+
+      ],
+      "challengeType": 1,
+      "files": {
+        "indexjs": {
+          "key": "indexjs",
+          "ext": "js",
+          "name": "index",
+          "contents": [
+            "function findAdults( ages) {",
+            "    var adults = [];",
+            "    // Only change code below this line",
+            " ",
+            "    // Only change code above this line",
+            "    return adults;",
+            "}",
+            " ",
+            "var ages = [21, 32, 14, 9, 18];",
+            "var areTheyAdults = findAdults(ages);"
+          ],
+          "head": [],
+          "tail": []
+        }
+      }
+    },
+    {
       "id": "56533eb9ac21ba0edf2244e1",
       "title": "Nesting For Loops",
       "description": [
