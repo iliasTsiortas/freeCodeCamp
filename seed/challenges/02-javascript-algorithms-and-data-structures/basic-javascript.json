@@ -7236,8 +7236,8 @@
       ],
       "tests": [
         {
-          "text": "'<code>areTheyAdults</code> should now be [<code>true</code>, <code>true</code>, <code>false</code>, <code>false</code>,<code> true</code>].'",
-          "testString": "assert((function(){if(areTheyAdults != 'undefined' && areTheyAdults[0] == true && areTheyAdults[1] == true && areTheyAdults[2] == false && areTheyAdults[3] == false && areTheyAdults[4] == true){return true;}else{return false;}})(),'<code>areTheyAdults</code> should now be [<code>true</code>, <code>true</code>, <code>false</code>, <code>false</code>,<code> true</code>].');"
+          "text": "'<code>areTheyAdults</code> should be [<code>true</code>, <code>true</code>, <code>false</code>, <code>false</code>,<code> true</code>].'",
+          "testString": "assert((function(){if(areTheyAdults != 'undefined' && areTheyAdults[0] == true && areTheyAdults[1] == true && areTheyAdults[2] == false && areTheyAdults[3] == false && areTheyAdults[4] == true){return true;}else{return false;}})(),'<code>areTheyAdults</code> should be [<code>true</code>, <code>true</code>, <code>false</code>, <code>false</code>,<code> true</code>].');"
         },
         {
           "text": "You should use a <code>for</code> loop to iterate through <code>adults</code>",
@@ -7945,6 +7945,63 @@
           "tail": []
         }
       }
+    },
+    {
+      "id": "5b13cfba32d08c4fe48b9b1d",
+      "title": "Passing functions as arguments to another function",
+      "description": [
+        ],
+      "solutions": ["function agesArray(years , calculateAge){\n var agesArr = []; \n for (var i = 0; i <years.length; i++){ \n agesArr.push(calculateAge(years[i]));\n}\n return agesArr;\n }\n\n function calculateAge(year){\n return 2018 - year;\n}\n\n var years = [1992, 1945 ,2010 ,1996, 2000];\n\n var ages = agesArray(years, calculateAge);"],
+      "tests": [
+        {
+          "text": "You should use the <code>calculateAge</code>function inside the <code>for</code> loop.",
+          "testString": "assert(code.match(/calculateAge\\s*\\(/g).length >= 2, 'You should use the <code>calculateAge</code>function inside the <code>for</code> loop.');"
+        },
+        {
+          "text": "You should <code>years</code> array as an argument in <code>calculateAge</code> function to create <code>agesArr</code>",
+          "testString": "assert(code.match(/years\\s*\\[/) , 'You should use <code>years</code> array as an argument in <code>calculateAge</code> function to create <code>agesArr</code>');"
+        },
+        {
+          "text": "<code>agesArray</code> should  be [26, 73, 8, 22, 18].",
+          "testString": "assert((function(){if(ages != 'undefined' && ages[0] == 26 && ages[1] == 73 && ages[2] == 8 && ages[3] == 22 && ages[4] == 18){return true;}else{return false;}})(),'<code>ages</code> should  be [26, 73, 8, 22, 18].');"
+        },
+        {
+          "text": "You should <code>years</code> array as an argument in <code>calculateAge</code> function to create <code>agesArr</code>",
+          "testString": "assert(code.match(/push\\s*\\(/) , 'You should use <code>.push()</code> to append data to agesArr. ');"
+        }
+      ],
+      "challengeType": 1,
+      "releasedOn": "June 6 ,2018",
+      "files": {
+        "indexjs": {
+          "key": "indexjs",
+          "ext": "js",
+          "name": "index",
+          "contents": [
+            "function agesArray(years , calculateAge){",
+            "    var agesArr = [];",
+            "    for (var i = 0; i <years.length; i++){ ",
+            "       // Only change code below this line.",
+            " ",
+            "       // Only change code above this line.",
+            "    } ",
+            "    return agesArr; ",
+            "} ",
+            " ",
+            "function calculateAge(year){ ",
+            "    return 2018 - year; ",
+            "} ",
+            " ",
+            "var years = [1992, 1945 ,2010 ,1996, 2000]; ",
+            " ",
+            "var ages = agesArray(years, calculateAge); "
+          ],
+          "head": [],
+          "tail": []
+        }
+      }
     }
+
+
   ]
 }
