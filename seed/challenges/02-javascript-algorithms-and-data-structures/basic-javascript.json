@@ -7230,6 +7230,10 @@
       "id": "5b12b8a69068cc660b99297c",
       "title": "Use If statements in For loop",
       "description": [
+        "In Javascript and in every programming language, you can use an <code>If..else</code>",
+        "statement inside a <code>For</code> loop.<br>In this challenge,use a <code>For</code> loop and inside it,<br>",
+        " use an <code>If..else</code> statement to fill the <code>adults</code> array."
+
       ],
       "releasedOn": "January 1, 2016",
       "solutions": [" function findAdults(ages)\n {var adults = [];\nfor (var i = 0;  i < ages.length; i++){ \nif (ages[i] >= 18)\n {adults[i] = true;\n} else {\n adults[i] = false;\n } \n} \n return adults; \n} \n var ages = [21, 32, 14, 9, 18]; \n var areTheyAdults = findAdults(ages); "
@@ -7950,6 +7954,10 @@
       "id": "5b13cfba32d08c4fe48b9b1d",
       "title": "Passing functions as arguments to another function",
       "description": [
+        "In Javascript, you can pass a function as an argument to another function.<br>",
+        "In this challenge, using the <code>calculateAge</code> function,you will need to fill the <code>agesArr </code> array.<br>",
+        "You should use the <code>years</code> array as an argument in calculateAge<br>",
+        "and <code>.push()</code> to append data to <code>agesArr</code>."
         ],
       "solutions": ["function agesArray(years , calculateAge){\n var agesArr = []; \n for (var i = 0; i <years.length; i++){ \n agesArr.push(calculateAge(years[i]));\n}\n return agesArr;\n }\n\n function calculateAge(year){\n return 2018 - year;\n}\n\n var years = [1992, 1945 ,2010 ,1996, 2000];\n\n var ages = agesArray(years, calculateAge);"],
       "tests": [
@@ -7958,7 +7966,7 @@
           "testString": "assert(code.match(/calculateAge\\s*\\(/g).length >= 2, 'You should use the <code>calculateAge</code>function inside the <code>for</code> loop.');"
         },
         {
-          "text": "You should <code>years</code> array as an argument in <code>calculateAge</code> function to create <code>agesArr</code>",
+          "text": "You should use <code>years</code> array as an argument in <code>calculateAge</code> function to create <code>agesArr</code>",
           "testString": "assert(code.match(/years\\s*\\[/) , 'You should use <code>years</code> array as an argument in <code>calculateAge</code> function to create <code>agesArr</code>');"
         },
         {
@@ -7966,12 +7974,12 @@
           "testString": "assert((function(){if(ages != 'undefined' && ages[0] == 26 && ages[1] == 73 && ages[2] == 8 && ages[3] == 22 && ages[4] == 18){return true;}else{return false;}})(),'<code>ages</code> should  be [26, 73, 8, 22, 18].');"
         },
         {
-          "text": "You should <code>years</code> array as an argument in <code>calculateAge</code> function to create <code>agesArr</code>",
+          "text": "You should <code>.push</code> to append data to <code>agesArr</code> ",
           "testString": "assert(code.match(/push\\s*\\(/) , 'You should use <code>.push()</code> to append data to agesArr. ');"
         }
       ],
       "challengeType": 1,
-      "releasedOn": "June 6 ,2018",
+      "releasedOn": "June 3 ,2018",
       "files": {
         "indexjs": {
           "key": "indexjs",
@@ -7995,6 +8003,64 @@
             "var years = [1992, 1945 ,2010 ,1996, 2000]; ",
             " ",
             "var ages = agesArray(years, calculateAge); "
+          ],
+          "head": [],
+          "tail": []
+        }
+      }
+    },
+    {
+      "id": "5b141b346f6a4d5dcf6b6e8e",
+      "title": "Returning functions from functions",
+      "description": [
+        "In Javascript, you can <code> return </code> functions from other functions.<br>",
+        "those functions do not have a name and the <code>var</code> schoolString is a function because <code>highSchoolOrNot </code> returns a function.",
+        "<br> in tthe  MariesSchoolString <code.var</code> we pass the return of schoolString(‘Marie’)  which returns if she goes to elementary school or not.",
+        "<br> In this challenge, create a string called <code>school</code> wich contains this string:",
+        "<br>(example) i am john, i am 23 years old and dont go to school or i am john, i am 23 years old and i go to elementary school.",
+        "<br>add the name and the age using <code>+</code><br> to return the appropriate string."
+        ],
+      "solutions": [
+        "function highSchoolOrNot(age){\nif (age >= 14 && age <=18){\nreturn function(name) {\nvar school = 'i am ' + name + ' , i am ' + age + ' years old and i go to high school';\nreturn school;\n}\n} else {\nreturn function(name) {\nvar school = 'i am ' + name + ' , i am ' + age + ' years old and don't go to high school';\nreturn school;\n\n}\n}\n\n\nvar schoolString = highSchoolOrNot(6);\nvar MariesSchoolString = schoolString('Marie');"
+      ],
+      "tests": [
+        {
+          "text": "<code>MariesSchoolString</code> should be 'i am Marie , i am 6 years old and dont go to high school'",
+          "testString": "assert(function(){if(MariesSchoolString != 'undefined' && MariesSchoolString === 'i am Marie , i am 6 years old and dont go to school'){return true;}else{return false;}})(), '<code>MariesSchoolString</code> should be i am Marie , i am 6 years old and dont go to high school ' );"
+        },
+        {
+          "text": "You should return <code> schoolString </code> on both <code> if </code> and <code> else </code>",
+          "testString": "assert(code.match(/return\\s*\\/g).length >= 4,'');"
+        }
+       ],
+      "challengeType": 1,
+      "releasedOn": "June 3 2018",
+      "translations": {},
+      "files": {
+        "indexjs": {
+          "key": "indexjs",
+          "ext": "js",
+          "name": "index",
+          "contents": [
+            "function highSchoolOrNot(age){",
+            "    if (age >= 14 && age <=18){",
+            "        return function(name) {",
+            "            // Only change code below this line",
+            "",
+            "            // Only change code above this line",
+            "        }",
+            "    } else {",
+            "        return function (name) {",
+            "            // Only change code below this line",
+            "",
+            "            // Only change code above this line",
+            "       }",
+            "    }",
+            "}",
+            "",
+            "var schoolString = highSchoolOrNot(6);",
+            "var MariesSchoolString = schoolString('Marie');",
+            "console.log(MariesSchoolString);"
           ],
           "head": [],
           "tail": []
